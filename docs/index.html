@@ -11,10 +11,37 @@
 <body>
     <div class="bg-motion">
         <img class="motion-img"
-            src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80"
+            src="https://images.unsplash.com/photo-1661366698983-3cb843219300?auto=format&fit=crop&w=1200&q=80"
             alt="motion background" />
     </div>
-    <div class="center-message">The start of something new</div>
+    <div class="bg-motion">
+        <img class="motion-img" id="bg-img" src="" alt="motion background" />
+    </div>
+    <script>
+        // Random background images
+        const bgImages = [
+            "https://images.unsplash.com/photo-1661366698983-3cb843219300?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1643625801401-f6a17d1debe3?auto=format&fit=crop&w=1200&q=80",
+            "https://plus.unsplash.com/premium_photo-1697729536647-4e23a32dd324?auto=format&fit=crop&w=1200&q=80"
+        ];
+        document.getElementById('bg-img').src = bgImages[Math.floor(Math.random() * bgImages.length)];
+    </script>
+    <div class="center-message">
+        <div class="main-title">Infinite</div>
+        <div class="animated-line"><span id="animated-word">Commons</span></div>
+    </div>
+    <script>
+        const words = ["Potential", "Possibilities", "Thoughts", "Goals", "Ideas", "Commons"];
+        const animatedWord = document.getElementById("animated-word");
+        let idx = 0;
+        function cycleWords() {
+            animatedWord.textContent = words[idx];
+            let delay = (words[idx] === "Commons") ? 2200 : 1100;
+            idx = (idx + 1) % words.length;
+            setTimeout(cycleWords, delay);
+        }
+        cycleWords();
+    </script>
     <footer class="footer">2025. Infinite Commons</footer>
 
 </body>
